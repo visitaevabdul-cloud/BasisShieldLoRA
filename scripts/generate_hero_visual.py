@@ -22,8 +22,8 @@ def main() -> None:
         }
     )
 
-    fig = plt.figure(figsize=(16, 6.2), dpi=300)
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.15, 1.0, 1.05], wspace=0.28)
+    fig = plt.figure(figsize=(16.8, 6.5), dpi=300)
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.15, 1.0, 1.08], wspace=0.32)
 
     fig.suptitle(
         "LLMSAFETTN — BasisShieldLoRA & SpectralEntangler R&D Benchmark",
@@ -121,19 +121,19 @@ def main() -> None:
     # --- Panel 3: Abliteration Scaling Comparison ---
     ax2 = fig.add_subplot(gs[0, 2])
     models = [
-        "MiniQwen2 (d=64)\nPlain LoRA",
-        "MiniQwen2 (d=64)\nEntangled",
-        "Qwen2.5-1.5B (d=1536)\nPlain LoRA",
-        "Qwen2.5-1.5B (d=1536)\nEntangled",
+        "MiniQwen2\n(d=64)\nPlain LoRA",
+        "MiniQwen2\n(d=64)\nEntangled",
+        "Qwen2.5-1.5B\n(d=1536)\nPlain LoRA",
+        "Qwen2.5-1.5B\n(d=1536)\nEntangled",
     ]
     ppl_deltas = [23.00, 155.80, 4.17, 1.64]
     bar_colors2 = ["#8b949e", "#3fb950", "#8b949e", "#d29922"]
 
-    bars2 = ax2.bar(models, ppl_deltas, color=bar_colors2, width=0.55, edgecolor="#30363d", linewidth=1.0)
+    bars2 = ax2.bar(models, ppl_deltas, color=bar_colors2, width=0.52, edgecolor="#30363d", linewidth=1.0)
     ax2.set_ylim(0, 185)
     ax2.set_ylabel("Utility PPL Increase After Abliteration (%)")
     ax2.set_title("3. Abliteration Impact: d=64 vs d=1536", fontsize=11.5, fontweight="bold", color="#58a6ff", pad=10)
-    ax2.tick_params(axis="x", labelsize=7.5)
+    ax2.tick_params(axis="x", labelsize=8.0, pad=5)
     ax2.grid(axis="y", color="#21262d", linestyle="-", linewidth=0.7)
     ax2.set_axisbelow(True)
 
